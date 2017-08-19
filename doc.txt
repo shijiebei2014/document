@@ -1,0 +1,2 @@
+redis-cli info | grep -e "version*"
+redis-cli keys "*" | xargs redis-cli del
