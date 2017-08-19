@@ -1,2 +1,11 @@
 redis-cli info | grep -e "version*"
 redis-cli keys "*" | xargs redis-cli del
+
+#启动redis容器
+docker run --name redis -d redis
+#打开redis-cli
+docker run -it --link redis:redis --rm redis redis-cli -h redis -p 6379
+#停止reids容器
+docker stop redis
+#删除redis容器
+docker rm redis
